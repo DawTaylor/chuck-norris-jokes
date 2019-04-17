@@ -7,7 +7,7 @@ const random = ({ category, joke }) => (
 		<Joke content={joke.value} />
 
 		<Link route="random" params={{ category }}>
-			Get another joke
+			Get another {category} joke
 		</Link>
 	</>
 );
