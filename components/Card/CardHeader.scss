@@ -1,0 +1,13 @@
+.card-header {
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+    text-transform: capitalize;
+    small {
+        font-weight: normal;
+        font-size: 0.7em;
+        &::before {
+            content: ' ';
+            display: block;
+        }
+    }
+}
