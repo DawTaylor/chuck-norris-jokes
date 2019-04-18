@@ -8,7 +8,9 @@ import { Joke, Link, PastJokesList } from '../components';
 
 const random = ({ category, joke, pastJokes }) => (
   <>
-    <h1>Randon {category} Chuck Norris joke</h1>
+    <Link to="/">
+      <h1>Randon {category} Chuck Norris joke</h1>
+    </Link>
     <Joke content={joke.value} />
 
     <Link route="random" params={{ category }}>
