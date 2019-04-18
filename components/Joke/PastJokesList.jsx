@@ -6,11 +6,13 @@ import { Link } from '../Link';
 export const PastJokesList = ({ jokes }) => (
   <>
     <h2>Past jokes</h2>
-    {Object.values(jokes).map(joke => (
-      <Link key={joke.id} route="joke" params={{ joke: joke.id }}>
-        <Joke content={joke.value} />
-      </Link>
-    ))}
+    {Object.values(jokes)
+      .slice(1)
+      .map(joke => (
+        <Link key={joke.id} route="joke" params={{ joke: joke.id }}>
+          <Joke content={joke.value} />
+        </Link>
+      ))}
   </>
 );
 

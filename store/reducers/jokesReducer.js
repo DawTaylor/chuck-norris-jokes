@@ -13,9 +13,19 @@ const dispatchers = {
         timestamp: new Date().toTimeString(),
       },
     };
+
+    const sortedJokes = Object.values(jokes)
+      .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
+      .reduce(
+        (acc, el) => ({
+          ...acc,
+          [el.id]: el,
+        }),
+        {}
+      );
     const newState = {
       ...state,
-      jokes,
+      jokes: sortedJokes,
     };
     return newState;
   },
