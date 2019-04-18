@@ -1,1 +1,1 @@
-export const API_ADDRESS = "https://api.chucknorris.io/jokes";
+export const API_ADDRESS = 'https://api.chucknorris.io/jokes';
