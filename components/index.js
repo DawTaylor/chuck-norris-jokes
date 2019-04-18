@@ -3,3 +3,4 @@ export * from './Category';
 export * from './Card';
 export * from './Joke';
 export * from './Link';
+export * from './Tag';

@@ -10,7 +10,7 @@ export const PastJokesList = ({ jokes }) => (
       .slice(1)
       .map(joke => (
         <Link key={joke.id} route="joke" params={{ joke: joke.id }}>
-          <Joke content={joke.value} />
+          <Joke content={joke.value} tags={joke.category} />
         </Link>
       ))}
   </>
