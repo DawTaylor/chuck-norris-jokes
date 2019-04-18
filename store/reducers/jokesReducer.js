@@ -5,13 +5,20 @@ const initialState = {
 };
 
 const dispatchers = {
-  [JOKES_ADD]: (state, { joke }) => ({
-    ...state,
-    jokes: {
+  [JOKES_ADD]: (state, { joke }) => {
+    const jokes = {
       ...state.jokes,
-      [joke.id]: joke,
-    },
-  }),
+      [joke.id]: {
+        ...joke,
+        timestamp: new Date().toTimeString(),
+      },
+    };
+    const newState = {
+      ...state,
+      jokes,
+    };
+    return newState;
+  },
   default: state => state,
 };
 

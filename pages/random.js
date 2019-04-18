@@ -1,11 +1,12 @@
 import propTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { jokesAdd } from '../store/actions';
 
 import { axiosFactory } from '../helpers';
-import { Joke, Link } from '../components';
+import { Joke, Link, PastJokesList } from '../components';
 
-const random = ({ category, joke }) => (
+const random = ({ category, joke, pastJokes }) => (
   <>
     <h1>Randon {category} Chuck Norris joke</h1>
     <Joke content={joke.value} />
@@ -13,17 +14,23 @@ const random = ({ category, joke }) => (
     <Link route="random" params={{ category }}>
       Get another {category} joke
     </Link>
-    <br />
-    <Link to="/">Go to categories list</Link>
+
+    {pastJokes && Object.keys(pastJokes).length > 1 && (
+      <>
+        <PastJokesList jokes={pastJokes} />
+      </>
+    )}
   </>
 );
 
 random.defaultProps = {
   category: null,
+  pastJokes: {},
 };
 random.propTypes = {
   joke: propTypes.object.isRequired,
   category: propTypes.string,
+  pastJokes: propTypes.object,
 };
 
 random.getInitialProps = async ({ query, reduxStore }) => {
@@ -38,4 +45,8 @@ random.getInitialProps = async ({ query, reduxStore }) => {
   }
 };
 
-export default random;
+const mapStateToProps = state => ({
+  pastJokes: state.jokesReducer.jokes,
+});
+
+export default connect(mapStateToProps)(random);
