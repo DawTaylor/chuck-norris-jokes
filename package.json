@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint . --ext .js --ext .jsx --fix"
   },
   "dependencies": {
     "@zeit/next-sass": "1.0.1",
