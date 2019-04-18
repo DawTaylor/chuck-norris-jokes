@@ -9,7 +9,7 @@ import { withRedux } from '../hoc/withRedux';
 
 import { Main } from '../layout';
 
-Router.events.on('routeChangeStart', url => {
+Router.events.on('routeChangeStart', () => {
   NProgress.start();
 });
 
