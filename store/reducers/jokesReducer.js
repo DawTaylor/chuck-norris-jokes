@@ -5,13 +5,30 @@ const initialState = {
 };
 
 const dispatchers = {
-  [JOKES_ADD]: (state, { joke }) => ({
-    ...state,
-    jokes: {
+  [JOKES_ADD]: (state, { joke }) => {
+    const jokes = {
       ...state.jokes,
-      [joke.id]: joke,
-    },
-  }),
+      [joke.id]: {
+        ...joke,
+        timestamp: new Date().toTimeString(),
+      },
+    };
+
+    const sortedJokes = Object.values(jokes)
+      .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
+      .reduce(
+        (acc, el) => ({
+          ...acc,
+          [el.id]: el,
+        }),
+        {}
+      );
+    const newState = {
+      ...state,
+      jokes: sortedJokes,
+    };
+    return newState;
+  },
   default: state => state,
 };
 

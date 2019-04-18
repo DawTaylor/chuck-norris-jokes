@@ -3,13 +3,13 @@ import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import Head from 'next/head';
 
 import { withRedux } from '../hoc/withRedux';
 
 import { Main } from '../layout';
 
-Router.events.on('routeChangeStart', url => {
-  console.log(`Loading: ${url}`);
+Router.events.on('routeChangeStart', () => {
   NProgress.start();
 });
 
@@ -32,6 +32,9 @@ class MyApp extends App {
 
     return (
       <Container>
+        <Head>
+          <title>Chuck Norris Jokes</title>
+        </Head>
         <Provider store={reduxStore}>
           <Main>
             <Component {...pageProps} />
