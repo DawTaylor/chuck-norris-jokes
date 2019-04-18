@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "chuck-norris",
-  "alias": "chuck-norris.dawtaylor.now.sh",
+  "alias": "chuck-norris.adalbertotaylor.com.br",
   "builds": [
     {
       "src": "next.config.js",
