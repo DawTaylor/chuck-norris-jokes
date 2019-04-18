@@ -10,7 +10,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Chuck Norris Jokes</title>
           <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
         </Head>
         <body className="custom_class">
