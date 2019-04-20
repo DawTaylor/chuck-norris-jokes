@@ -7,5 +7,15 @@
       "src": "next.config.js",
       "use": "@now/next"
     }
+  ],
+  "routes": [
+    {
+      "src": "/random/(?<category>[^/]+)$",
+      "dest": "/random?category=$category"
+    },
+    {
+      "src": "/joke/(?<joke>[^/]+)$",
+      "dest": "/joke?joke=$joke"
+    }
   ]
 }
